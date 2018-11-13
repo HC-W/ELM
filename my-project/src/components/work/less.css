@@ -1,0 +1,74 @@
+#app {
+    background-color: #F5F5F5;
+    min-height: 736px;
+}
+div{
+    background-color: white;
+}
+.top {
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #3191E8;
+    height: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.topLogin {
+    font-size: 20px;
+    justify-content: center;
+  }
+  .callBack {
+    font-size: 14px;
+    position: absolute;
+    left: 10px;
+  }
+  .content {
+    margin-top: 15px;
+    background-color: transparent;
+  }
+  .inps div {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+  }
+  input {
+    border-width: 0;
+    outline-style: none;
+    padding: 5px;
+  }
+  ::-webkit-input-placeholder {
+    font-size: 18px;
+  }
+  .dengA {
+    width: 100%;
+    height: 45px;
+    margin-top: 15px;
+}
+.dengA a {
+    display: block;
+    width: 96%;
+    margin: 0 auto;
+    height: 100%;
+    background-color: #4BD965;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    line-height: 2em;
+}
+.yanZheng {
+    display: flex;
+    justify-content: space-between;
+}
+.yanZheng span {
+    font-size: 15px;
+    display: block;
+    letter-spacing: 2px;
+}
+.huan {
+    color: #7BB8F0;
+}
