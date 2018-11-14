@@ -11,12 +11,13 @@ import Vue from 'vue'
 import router from './router'
 import store from './store'
 
-import {Row,Col} from 'iview';
+import {Row,Col,Switch} from 'iview';
 import 'iview/dist/styles/iview.css';
 // 请求jq ajax/axios:ajax的一个库/fetch
 
 Vue.component('i-row',Row)
 Vue.component('i-col',Col)
+Vue.component('i-switch',Switch)
 
 import Jq from 'jquery'
 // console.log(Jq);

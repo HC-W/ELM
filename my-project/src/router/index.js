@@ -8,7 +8,7 @@ import Router from 'vue-router';
 import ShouYe from '@/components/work/shouye';
 import Login from '@/components/work/login';
 import Forget from '@/components/work/forget';
-
+import SearchShop from '@/components/work/searchShop';
 // 这是一个全局注册的方法，如果把这个注释掉或者没有它，那么路由router将不会生效
 //  在当前项目全局开启 vue-router
 Vue.use(Router);
@@ -32,7 +32,8 @@ export default new Router({
     },
     {
       path: '/city/:id',
-      component: Forget
+      name:"city",
+      component: SearchShop
     }
   ]
 })

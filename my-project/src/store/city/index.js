@@ -5,7 +5,10 @@ export default {
         hot: [],
         //   全部城市的json数据
         cities: [],
+        nowCity:[],
+        // allCity:[],
         num: 0,
+        // seCity: [],
         arr: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'W', 'X', 'Y', 'Z'],
         rightCity: {
             "text-align": "center"
@@ -22,27 +25,34 @@ export default {
         async AllCity({ commit, dispatch, state },arg) {
             let cities = await (await fetch("/Api/v1/cities?type=group")).json();
             let hot = await (await fetch("/Api/v1/cities?type=hot")).json();
-            console.log(cities)
-            console.log(hot)
+            let nowCity=await (await fetch("/Api/v1/cities?type=guess")).json();
+            // console.log(cities)
+            // console.log(hot)
             commit('Hot',hot)
             commit('AllCity', cities)
+            commit("NowCity",nowCity)
         }
     },
     mutations: {
         AllCity(state,arg) {
             state.cities = state.cities.concat(arg);
+            // state.allCity = state.allCity.concat(arg);
         },
         Hot(state,arg) {
             state.hot = state.hot.concat(arg);
-        }
-       
+        },
+       NowCity(state,arg) {
+           state.nowCity = state.nowCity.concat(arg);
+       }
     }
     // 3、数据过滤 （缓存） ==> computed
     // getters: {
-    //     CnodeGood(state) {
+    //     FitterCity(state) {
     //         // console.log(state)
-    //         console.log(state.AllTopic);
-    //         if (state.AllTopic.length) {
+    //         console.log(state.allCity);
+    //         if (state.allCity.length) {
+
+
     //             return state.AllTopic[0].data.filter((item) => {
     //                 return item.good
     //             });

@@ -10,15 +10,6 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    // 对应文件为：lianxi/index.js
-    // proxyTable: {
-    //   "/Api":{
-    //     target:"https://www.duitang.com",
-    //     changeOrigin:true,
-    //     pathRewrite:{
-    //       '^/Api':'/napi'
-    //     }
-    //   }
 
     // 跨域配置
     proxyTable: {
@@ -32,7 +23,30 @@ module.exports = {
         // "headers": {
         //   "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
         // }
-      }
+      },
+      // "/Elm": {
+      //   target: "https://elm.cangdu.org",
+      //   // "secure": false,
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/Elm': ''
+      //   },
+      //   // "headers": {
+      //   //   "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
+      //   // }
+      // },
+      // 连接数据库请求地址
+      "/Login": {
+        target: "http://127.0.0.1:8020",
+        // "secure": false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/Login': ''
+        }
+        // "headers": {
+        //   "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
+        // }
+      },
     },
 
     // Various Dev Server settings

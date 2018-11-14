@@ -18,16 +18,23 @@ div{
     font-size: 20px;
     justify-content: center;
   }
+  .topCity {
+    font-size: 20px;
+    justify-content: space-between;
+  }
   .callBack {
     font-size: 14px;
     position: absolute;
     left: 10px;
   }
+  .back {
+    font-size: 14px;
+  }
   .content {
     margin-top: 15px;
     background-color: transparent;
   }
-  .inps div {
+  .inps>div {
     border-bottom: 1px solid #ccc;
     padding: 10px 15px;
     box-sizing: border-box;
@@ -38,6 +45,7 @@ div{
     border-width: 0;
     outline-style: none;
     padding: 5px;
+    font-size:16px;
   }
   ::-webkit-input-placeholder {
     font-size: 18px;
@@ -60,9 +68,14 @@ div{
     text-decoration: none;
     line-height: 2em;
 }
+
 .yanZheng {
     display: flex;
     justify-content: space-between;
+}
+.yanZheng div {
+    display: flex;
+    justify-content: flex-end;
 }
 .yanZheng span {
     font-size: 15px;
