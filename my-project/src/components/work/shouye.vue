@@ -5,6 +5,7 @@
             <span>ele.me</span>
             <p>
                 <router-link to="/login" class="toLogin">登录</router-link>
+                <span>|</span>
                 <span>注册</span>
             </p>
         </div>
@@ -78,7 +79,7 @@
                 <!-- 右边省份首字母 -->
                 <i-col span=3 :class="$store.state.City.num==1?$store.state.City.rightCityFixed:$store.state.City.rightCity">
                     <template v-for="(item,index) in $store.state.City.arr">
-                        <p style="margin-top:10px;">
+                        <p style="margin-top:5px;">
                             <span @click="link(item)">{{item}}</span>
                         </p>
                     </template>
@@ -86,53 +87,25 @@
                 </i-col>
             </i-row>
         </div>
+        <i-backtop :bottom="80" style="text-align:center">
+            <i-icon type="md-arrow-round-up" class="icon"/>
+        </i-backtop>
     </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            city:""
-        }
-    },
-  // 把这些利用vuex放到store里面
-
-  //   data() {
-
-  //     return {
-  //         // 热门的json数据
-  //       hot: [],
-  //     //   全部城市的json数据
-  //       cities: [],
-  //       num:0,
-  //       arr:['A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','W','X','Y','Z'],
-  //       rightCity: {
-  //           "text-align":"center"
-  //       },
-  //       rightCityFixed: {
-  //           "text-align":"center",
-  //           position:"fixed",
-  //           top:"300px",
-  //           right:"20px"
-  //       }
-  //     };
-  //   },
-  // //   数据请求
-  //   async created() {
-  //     let hot = await (await fetch("/Api/v1/cities?type=hot")).json();
-  //     this.hot = hot;
-  //     let cities = await (await fetch("/Api/v1/cities?type=group")).json();
-  //     this.cities.push(cities);
-  //   },
+  data() {
+    return {
+      city: ""
+    };
+  },
   methods: {
     link(item) {
-    //   window.scrollTo(0, this.$refs[val][0].offsetTop);
-    //   console.log(this.$refs[item][0].offsetTop);
+      //   window.scrollTo(0, this.$refs[val][0].offsetTop);
+      //   console.log(this.$refs[item][0].offsetTop);
     }
   },
-
-  //   利用vuex的数据引入
   created() {
     this.$store.dispatch("City/AllCity");
     // console.log(this.$store);
@@ -142,19 +115,19 @@ export default {
     let that = this;
     geolocation.getCurrentPosition(
       function(r) {
-        if(this.getStatus() == BMAP_STATUS_SUCCESS){
-            // 创建坐标点
-            var pt = new BMap.Point(r.point.lng,r.point.lat);
-            // 创建地理位置解析器
-            var geoc = new BMap.Geocoder();
-            geoc.getLocation(pt,function(rs){
-                // 解析格式：城市，区县，街道
-                var addComp = rs.addressComponents;
-                that.city = addComp.city;
-                // console.log(that.city);
-            })
-        }else{
-            alert("定位失败")
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+          // 创建坐标点
+          var pt = new BMap.Point(r.point.lng, r.point.lat);
+          // 创建地理位置解析器
+          var geoc = new BMap.Geocoder();
+          geoc.getLocation(pt, function(rs) {
+            // 解析格式：城市，区县，街道
+            var addComp = rs.addressComponents;
+            that.city = addComp.city;
+            // console.log(that.city);
+          });
+        } else {
+          alert("定位失败");
         }
       },
       { enableHighAccuracy: true }
@@ -210,4 +183,5 @@ export default {
   width: 100%;
   font-size: 16px;
 }
+
 </style>

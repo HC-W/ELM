@@ -11,13 +11,21 @@ import Vue from 'vue'
 import router from './router'
 import store from './store'
 
-import {Row,Col,Switch} from 'iview';
+import {Row,Col,Switch,Avatar,Carousel,CarouselItem,Dropdown,DropdownMenu,BackTop,Icon,Rate} from 'iview';
 import 'iview/dist/styles/iview.css';
 // 请求jq ajax/axios:ajax的一个库/fetch
 
 Vue.component('i-row',Row)
 Vue.component('i-col',Col)
 Vue.component('i-switch',Switch)
+Vue.component('i-avatar',Avatar)
+Vue.component('i-carousel',Carousel)
+Vue.component('i-carouselitem',CarouselItem)
+Vue.component('i-dropdown',Dropdown)
+Vue.component('i-dropdownmenu',DropdownMenu)
+Vue.component('i-backtop',BackTop)
+Vue.component('i-icon',Icon)
+Vue.component('i-rate',Rate)
 
 import Jq from 'jquery'
 // console.log(Jq);

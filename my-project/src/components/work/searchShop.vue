@@ -1,26 +1,29 @@
 <template>
     <div id="app" v-cloak>
+        <!-- 头部 -->
         <div class="top topCity">
             <span class="back"><router-link to="/" style="color:white;">返回</router-link></span>
             <span>{{json.name}}</span>
             <span><router-link to="/" style="color:white;">切换城市</router-link></span>
         </div>
+        <!-- 搜索框 -->
         <div class="search">
             <input type="text" placeholder="输入学校、商务楼、地址" class="ser_inp" v-model="searchCity">
             <p class="tiJiao" @click="tijiao">提交</p>
         </div>
+        <!-- 搜索历史 -->
         <div id="history">
             <p class="history_p">搜索历史</p>
         </div>
+        <!-- 搜索数据显示 -->
         <template v-for="(item,index) in shopAll">
-            <router-link :to="{name:'city',params:{'id':$route.params.id},query: {'geohash':item.geohash,'name':item.name
+            <router-link :to="{name:'shop',params:{'id':$route.params.id},query: {'latitude':item.latitude,'longitude':item.longitude,'name':item.name
 }}" :key="index">
                 <div class="shop">
                     <p>{{item.name}}</p>
                     <p class="pAddress">{{item.address}}</p>
                 </div>
             </router-link>
-            <!-- {{item}} -->
         </template>
         
     </div>
@@ -42,7 +45,7 @@ export default {
                 dataType: "json"
             }).then(data => {
                 this.shopAll = data;
-                console.log(this.shopAll)
+                // console.log(this.shopAll)
             })
         }
     },

@@ -18,6 +18,9 @@ div{
     font-size: 20px;
     justify-content: center;
   }
+  .toLogin {
+      color: white;
+  }
   .topCity {
     font-size: 20px;
     justify-content: space-between;
@@ -46,6 +49,7 @@ div{
     outline-style: none;
     padding: 5px;
     font-size:16px;
+    border-radius: 3px;
   }
   ::-webkit-input-placeholder {
     font-size: 18px;
@@ -84,4 +88,11 @@ div{
 }
 .huan {
     color: #7BB8F0;
+}
+.icon {
+    display: block;
+    border-radius: 50%;
+    border-radius: 50%;
+    background-color: #3191e8;
+    text-align: center;
 }

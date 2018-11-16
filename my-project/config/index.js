@@ -24,17 +24,7 @@ module.exports = {
         //   "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
         // }
       },
-      // "/Elm": {
-      //   target: "https://elm.cangdu.org",
-      //   // "secure": false,
-      //   changeOrigin: true,
-      //   pathRewrite: {
-      //     '^/Elm': ''
-      //   },
-      //   // "headers": {
-      //   //   "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
-      //   // }
-      // },
+      
       // 连接数据库请求地址
       "/Login": {
         target: "http://127.0.0.1:8020",
@@ -43,6 +33,28 @@ module.exports = {
         pathRewrite: {
           '^/Login': ''
         }
+        // "headers": {
+        //   "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
+        // }
+      },
+      "/Lun": {
+        target: "https://h5.ele.me",
+        // "secure": false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/Lun': ''
+        },
+        // "headers": {
+        //   "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
+        // }
+      },
+      "/Dat": {
+        target: "http://127.0.0.1:8030/shopping",
+        // "secure": false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/Dat': ''
+        },
         // "headers": {
         //   "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
         // }
