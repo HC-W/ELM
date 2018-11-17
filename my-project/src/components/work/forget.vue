@@ -2,7 +2,7 @@
 <div id="app">
     <div class="top topLogin">
         <!-- 点击返回上一页 -->
-        <span class="callBack" @click="back">返回</span>
+        <span class="callBack" @click="back"><i-icon type="ios-arrow-back" /></span>
         <span>重置密码</span>
     </div>
     <div class="content">
@@ -109,5 +109,8 @@ export default {
 
 <style>
 @import "./less.css";
+div{
+    background-color: white;
+}
 </style>
 

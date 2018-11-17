@@ -137,6 +137,9 @@ export default {
 </script>
 <style>
 @import "./less.css";
+div{
+    background-color: white;
+}
 .toLogin {
   color: white;
 }

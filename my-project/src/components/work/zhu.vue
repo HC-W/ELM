@@ -3,9 +3,14 @@
         <!-- 头部 -->
         <div class="topS">
             <p>
-                <span class="back" @click="back">返回</span>
+                <span class="back" @click="back">
+                    <i-icon type="ios-pin"/>
+                </span>
                 <span>
-                    <router-link to="/" style="color:white;font-size:25px;margin-left:8px;">{{$route.query.name}}</router-link>
+                    <router-link to="/" style="color:white;font-size:25px;margin-left:8px;">
+                        {{$route.query.name}}
+                        <i-icon type="md-arrow-dropdown" />
+                    </router-link>
                 </span>
             </p>
         </div>
@@ -52,6 +57,9 @@ export default {
 
 <style>
 @import "./less.css";
+div{
+    background-color: white;
+}
 .topS {
    padding: 10px;
     box-sizing: border-box;
@@ -81,5 +89,8 @@ input {
     text-align: center;
     font-size: 18px;
     font-weight: 700;
+}
+.ivu-icon {
+    font-size: 25px;
 }
 </style>

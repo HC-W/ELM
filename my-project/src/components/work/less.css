@@ -1,10 +1,10 @@
 #app {
-    background-color: #F5F5F5;
-    min-height: 736px;
+    /* background-color: #F5F5F5; */
+    /* min-height: 736px; */
 }
-div{
+/* div{
     background-color: white;
-}
+} */
 .top {
     padding: 10px;
     box-sizing: border-box;
@@ -95,4 +95,7 @@ div{
     border-radius: 50%;
     background-color: #3191e8;
     text-align: center;
+}
+.ivu-icon {
+    font-size: 25px;
 }

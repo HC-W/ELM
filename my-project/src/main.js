@@ -11,7 +11,7 @@ import Vue from 'vue'
 import router from './router'
 import store from './store'
 
-import {Row,Col,Switch,Avatar,Carousel,CarouselItem,Dropdown,DropdownMenu,BackTop,Icon,Rate} from 'iview';
+import {Row,Col,Switch,Avatar,Carousel,CarouselItem,Dropdown,DropdownMenu,BackTop,Icon,Rate,Modal} from 'iview';
 import 'iview/dist/styles/iview.css';
 // 请求jq ajax/axios:ajax的一个库/fetch
 
@@ -26,6 +26,7 @@ Vue.component('i-dropdownmenu',DropdownMenu)
 Vue.component('i-backtop',BackTop)
 Vue.component('i-icon',Icon)
 Vue.component('i-rate',Rate)
+Vue.component('i-modal',Modal)
 
 import Jq from 'jquery'
 // console.log(Jq);

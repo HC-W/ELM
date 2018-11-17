@@ -1,7 +1,7 @@
 <template>
 <div id="app">
     <div class="top topLogin">
-        <span class="callBack" @click="back">返回</span>
+        <span class="callBack" @click="back"><i-icon type="ios-arrow-back" /></span>
         <span>密码登录</span>
     </div>
     <div class="content">
@@ -114,6 +114,9 @@ export default {
 
 <style>
 @import "./less.css";
+div{
+    background-color: white;
+}
 .ps {
   padding-left: 10px;
   background-color: transparent;
