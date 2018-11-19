@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div class="app">
         <p @click="back" style="font-size:16px;color:white;position:absolute;top:10px;left:15px;"><i-icon type="ios-arrow-back" /></p>
         <template v-for="(item,index) in jsonShop">
             <!-- 查找需要的商家信息 -->
@@ -62,31 +62,53 @@
                         </i-col>
                         <!-- 优惠个数 -->
                         <i-col span=6 class="col">
-                            {{item.restaurant.activities.length}}个优惠
-                            <i-icon type="md-arrow-dropdown" />
+                            <span @click="modal = true">{{item.restaurant.activities.length}}个优惠
+                            <i-icon type="md-arrow-dropdown" /></span>
                         </i-col>
                     </i-row>
                     <p class="gongGao">公告：{{item.restaurant.promotion_info}}</p>
                 </div>
                 <!-- 点餐、评价和商家 -->
-                <div class="diancan">
-                    <i-row type="flex" justify="space-around">
-                        <i-col class="ju_choose" span=8>点餐</i-col>
-                        <i-col class="ju_choose" span=8>评价</i-col>
-                        <i-col class="ju_choose" span=8>商家</i-col>
-                    </i-row>
-                </div>
+                
+                <dian-can></dian-can>
+                <!-- 优惠活动底下的弹框 -->
+                <i-modal v-model="modal" :mask-closable="true" :scrollable="true" :footer-hide="true">
+                    <div style="height:300px;">
+                    <h1 style="text-align:center;font-weight:700;">优惠活动</h1>
+                    <div class="scro">
+                    <template v-for="(itema,indexa) in item.restaurant.activities">
+                        <p style="padding:5px;">
+                            <span :style="{'background-color':'#'+itema.icon_color}" class="colCol">
+                                    {{itema.icon_name}}
+                            </span>
+                            <span>{{itema.tips}}</span>
+                        </p>
+                    </template>
+                    </div>
+                    </div>
+                </i-modal>
+                
+
             </template>
         </template>
+        <!-- 底部 -->
+        <bottom></bottom>
     </div>
 </template>
 
 <script>
+import DianCan from "./shopJu/dianCan.vue";
+import Bottom from './shopJu/bottom.vue';
 export default {
+    components: {
+        DianCan,
+        Bottom
+    },
     data() {
         return {
             jsonShop: [],
-            modal5: false
+            modal5: false,
+            modal: false
         }
     },
     created() {
@@ -124,6 +146,7 @@ export default {
 .diancan {
     padding: 10px;
     background-color: white;
+    box-sizing: border-box;
 }
 .col {
     text-align: center;
@@ -152,5 +175,20 @@ export default {
     font-size: 20px;
     font-weight: 700;
     color: black;
+}
+.ivu-modal{
+    top: 390px;
+    margin: 0;
+}
+.scro {
+    height: 260px;
+    overflow-y: scroll;
+}
+.bottom {
+    width: 100%;
+    height: 50px;
+    background-color: #999;
+    position: fixed;
+    bottom: 0;
 }
 </style>

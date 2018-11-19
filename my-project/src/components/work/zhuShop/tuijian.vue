@@ -1,60 +1,80 @@
 <template>
-    <div class="tuijian">
-        <i-row>
-            <i-col span=6 class="paixu_col">
-                <i-dropdown>
-                    <i-row class="paixu_col">综合排序</i-row>
-                    <i-dropdownmenu slot="list">
-                        <template v-for="(item,index) in $store.state.City.paiXu">
-                            <template v-for="(item,index) in item['outside']['inside_sort_filter']">
-                                <i-row class="paixu_row">{{item.name}}</i-row>
-                            </template>
-                        </template>
-                    </i-dropdownmenu>
-                </i-dropdown>
-            </i-col>
-            
-            <template v-for="(item,index) in $store.state.City.paiXu">
-                <template v-for="(item,index) in item['outside']['outside_sort_filter']">
-                    <i-col span=6 class="paixu_col">{{item.name}}</i-col>
-                </template>
-            </template>
-            <i-col span=6 class="paixu_col">筛选</i-col>
-        </i-row>
-            <!-- <h1>{{item["outside"]}}</h1> -->
-        <!-- {{$store.state.City.paiXu}} -->
+    <div class="shoptitle">
+        <div cc-Row class="title">
+            <div>
+                <i-dropdown trigger="click" style="margin-left: 20px">
+                <a href="javascript:void(0)">
+                    <span @click="Tab(0)">综合排序</span><i-icon type="ios-arrow-down"></i-icon>
+                </a>
+                <i-dropdownmenu slot="list">
+                    <i-dropdownitem><span @click="Tab(0)">综合排序</span></i-dropdownitem>
+                    <i-dropdownitem><span @click="Tab(1)">好评优先</span></i-dropdownitem>
+                    <i-dropdownitem><span @click="Tab(2)">销量最高</span></i-dropdownitem>
+                    <i-dropdownitem><span @click="Tab(3)">起送价最低</span></i-dropdownitem>
+                    <i-dropdownitem><span @click="Tab(4)">配送最快</span></i-dropdownitem>
+                    <i-dropdownitem><span @click="Tab(5)">配送费最低</span></i-dropdownitem>
+                    <i-dropdownitem><span @click="Tab(6)">人均从低到高</span></i-dropdownitem>
+                    <i-dropdownitem><span @click="Tab(7)">人均从高到低</span></i-dropdownitem>
+                </i-dropdownmenu>
+            </i-dropdown>
+            </div>
+            <div @click="Tab(8)">距离最近</div>
+            <div @click="Tab(9)">品质联盟</div>
+            <div @click="Tab(10)">筛选</div>
+        </div>  
     </div>
 </template>
 
+
 <script>
 export default {
-  created() {
-    this.$store.dispatch("City/PaiXu", {
-      latitude: this.$route.query.latitude,
-      longitude: this.$route.query.longitude
-    });
-  }
+    created() {
+        this.$store.dispatch("City/PaiXu", {
+            latitude: this.$route.query.latitude,
+            longitude: this.$route.query.longitude
+        });
+    },
+    methods: {
+        Tab(num) {
+            this.$store.dispatch("City/PaixuLate",num);
+            console.log(num);
+        }
+    }
+  
 };
 </script>
 
 <style>
-.tuijian {
-    padding: 10px 5px;
-    box-sizing: border-box;
-    border-bottom: 1px solid gray;
+.shoptitle{
+    padding: 10px;
+    text-align: center;
+    background-color: white;
     position: sticky;
-    top: 48px;
-    z-index: 10;
+    top: 50px;
+    z-index: 999;
+
 }
-.paixu_col {
-  text-align: center;
-  font-size: 16px;
+.title{
+    z-index: 888;
+    display: flex;
+    justify-content: space-between;
 }
-.paixu_row {
-  margin-top: 8px;
-  font-size: 15px;
+.title>div {
+    font-size: 16px;
+}
+.ivu-select-dropdown{
+    width: 100%;
+}
+.ivu-dropdown-menu{
+    text-align: left;
+}
+.ivu-dropdown-menu span {
+    display: block;
+    padding: 10px;
+    font-size: 16px;
 }
 </style>
+
 
 
 

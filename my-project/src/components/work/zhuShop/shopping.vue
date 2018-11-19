@@ -1,5 +1,6 @@
 <template>
     <div class="shopping">
+      <!-- {{$store.state.City.paiXu}} -->
         <i-row v-for="(item,index) in jsonShop" :key="index" class="rowAll">
             <router-link :to="{name:'shopping',params:{'id':$route.params.id},query:{'id':item.restaurant.id,'name':item.restaurant.name}}" style="color:block;">
                 <!-- 左边图片 -->
@@ -72,6 +73,9 @@
 
 <script>
 export default {
+  // created() {
+  //   this.$store.dispatch("City/PaiXu");
+  // },
   data() {
     return {
       jsonShop: [],
